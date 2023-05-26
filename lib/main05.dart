@@ -30,6 +30,7 @@ class MapSampleState extends State<MapSample> {
   final Set<Polygon> _polygons = <Polygon>{};
   final List<LatLng> _polygonLatLngs = <LatLng>[];
   int _polygonIdCounter = 1;
+  int _markerIdCounter = 1;
   static const CameraPosition _kOrigin = CameraPosition(
     target: LatLng(21.15774731319369, -101.70571275200567),
     zoom: 12.4746,
@@ -42,8 +43,10 @@ class MapSampleState extends State<MapSample> {
 
   void _setMarker(LatLng point) {
     setState(() {
+      final String markerIdValue = 'marker_$_polygonIdCounter';
+      _markerIdCounter++;
       _markers.add(
-        Marker(markerId: const MarkerId('marker'), position: point),
+        Marker(markerId: MarkerId(markerIdValue), position: point),
       );
     });
   }
