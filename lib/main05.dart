@@ -43,7 +43,7 @@ class MapSampleState extends State<MapSample> {
 
   void _setMarker(LatLng point) {
     setState(() {
-      final String markerIdValue = 'marker_$_polygonIdCounter';
+      final String markerIdValue = 'marker_$_markerIdCounter';
       _markerIdCounter++;
       _markers.add(
         Marker(markerId: MarkerId(markerIdValue), position: point),
